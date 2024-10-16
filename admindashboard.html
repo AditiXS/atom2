@@ -1,0 +1,273 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel = "stylesheet" href = "style.css">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Responsive Admin Dashboard</title>
+</head>
+<body>
+    
+    <nav class = "navbar">
+        <div class = "nav-left">
+            <i class = "menu-btn fas fa-bars"></i>
+            <h2 class = "logo">DASHBOARD</h2>
+        </div>
+        <div class = "nav-right">
+            <div class = "search">
+                <i class = "fas fa-search"></i>
+                <input type = "text" placeholder = "search....">
+            </div>
+            <div class = "notifications">
+                <i class = "fas fa-bell"></i>
+            </div>
+            <div class = "dark-mode">
+                <img src = "sun.png" id = "icon">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        
+        <div class="sidebar">
+            <div class="profile">
+                <button class = "profile-btn" onclick="pfp()">
+                <img class = "profile-image" src = "pfp.jpeg">
+                </button>
+                <h3>Atom</h3>
+                <p></p>
+            </div>
+            <div class = "menu">
+                <div class = "menu-detail menu-active">
+                    <a href = "#">
+                        <i class = "fas fa-chart-pie menu-icon"></i> <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class = "menu-detail">
+                    <a href = "#">
+                        <i class = "fas fa-gifts menu-icon"></i> <span>Campaign</span>
+                    </a>
+                </div>
+                <div class = "menu-detail">
+                    <a href = "#">
+                        <i class = "fas fa-headset menu-icon"></i> <span>Support Center</span>
+                    </a>
+                </div>
+                <div class = "menu-detail">
+                    <a href = "#">
+                        <i class = "fas fa-user-secret menu-icon"></i> <span>Security</span>
+                    </a>
+                </div>
+                <div class = "menu-detail">
+                    <a href = "#">
+                        <i class = "fas fa-cog menu-icon"></i> <span>Settings</span>
+                    </a>
+                </div>
+                <div class = "menu-detail">
+                    <a href = "#">
+                        <button class="btn-log" onclick="location.href=''">
+                        <i class = "fas fa-sign-out-alt menu-icon"></i> <span>Sign Out</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--main content-->
+        <div class = "main-container">
+            <!--left-->
+            <div class = "left-container">
+                <div class = "wrapper">
+                    <div class = "card-wrapper">
+                        <div class = "card">
+                            
+                            <h1 class = "count">₹54k</h1>
+                            <small>Weekly Sales</small>
+                            <div class = "dropdown">
+                                <button class = "btn btn-more">
+                                    <i class = "fas fa-ellipsis-v"></i>
+                                </button>
+                                <div class = "dropdown-content">
+                                    <a href = "#">Details</a>
+                                    <a href = "#">Download</a>
+                                    <a href = "#">Share</a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class = "card">
+                            
+                            <h1 class = "count">75.4K</h1>
+                            <small>Total Items Sold</small>
+                            <div class = "dropdown">
+                                <button class = "btn btn-more">
+                                    <i class = "fas fa-ellipsis-v"></i>
+                                </button>
+                                <div class = "dropdown-content">
+                                    <a href = "#">Details</a>
+                                    <a href = "#">Download</a>
+                                    <a href = "#">Share</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "card-wrapper">
+                        <div class = "card">
+                            
+                            <h1 class = "count">1457</h1>
+                            <small>Total Freaks</small>
+                            <div class = "dropdown">
+                                <button class = "btn btn-more">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                                <div class = "dropdown-content">
+                                    <a href = "#">Details</a>
+                                    <a href = "#">Download</a>
+                                    <a href = "#">Share</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "card">
+                           
+                            <h1 class = "count"> 34k</h1>
+                            <small>Total Courses Alloted</small>
+                            <div class = "dropdown">
+                                <button class = "btn btn-more">
+                                    <i class = "fas fa-ellipsis-v"></i>
+                                </button>
+                                <div class = "dropdown-content">
+                                    <a href = "#">Details</a>
+                                    <a href = "#">Download</a>
+                                    <a href = "#">Share</a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "wrapper">
+                    <div class="card">
+                        <div class = "title-wrapper">
+                            <h3 class = "title">Total Sales</h3>
+                            <div class = "filter">
+                                <a class = "active" href = "#">Day</a>
+                                <a href = "#">Week</a>
+                                <a href = "#">Month</a>
+                            </div>
+                        </div>
+                        <div class = "chart-container">
+                            <div id = "chLine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--right-->
+            <div class = "right-container">
+                <div class = "card">
+                    <h3 class = "title">Summary</h3>
+                    <div id = "dougnut-chart"></div>
+
+                    <div class = "chart-detail">
+                        <div class = "detail-wrapper">
+                            <i class = "fas fa-theater-masks"></i>
+                            <p>Diet Plans</p>
+                            <h3 class = "detail-num"> 198 <span class = "up-down green"> +64% </span></h3>
+                        </div>
+                        <hr class = "divider">
+                        <div class = "detail-wrapper">
+                            <i class = "fas fa-user-friends"></i>
+                            <p>Meditation</p>
+                            <h3 class = "detail-num"> 80 <span class = "up-down green"> +29% </span></h3>
+                        </div>
+                        <hr class = "divider">
+                        <div class = "detail-wrapper">
+                            <i class = "fas fa-shapes"></i>
+                            <p>Exercise</p>
+                            <h3 class = "detail-num">123 <span class = "up-down green"> -13% </span></h3>
+                        </div>
+                        <hr class = "divider">
+                        <div class = "detail-wrapper">
+                            <i class = "fas fa-shapes"></i>
+                            <p>Others</p>
+                            <h3 class = "detail-num">356 <span class = "up-down green"> +7% </span></h3>
+                        </div>
+                        <hr class = "divider">
+                    </div>
+                </div>
+            </div>
+
+            <!--bottom-->
+            <div class="bottom-container">
+                <div class = "card">
+                    <h3 class="title">Recent Upload</h3>
+                    <div class="table-wrapper">
+                        <table class = "table">
+                            <tr>
+                                <th>Thumbnails & Descriptions</th>
+                                <th>Dates</th>
+                                <th>View</th>
+                                <th>Comment</th>
+                                <th>Likes</th>
+                                <th>More</th>
+                            </tr>
+                            <tr>
+                                <td class="table-title">
+                                    <img class = "table-image" src = "video 1.jpg">
+                                </td>
+                                <td>Sep 11,2023</td>
+                                <td>280k</td>
+                                <td>151</td>
+                                <td>70k</td>
+                                <td><button class = "btn btn-table">Details</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-title">
+                                    <img class = "table-image" src = "video 2.jpg">
+                                </td>
+                                <td>Jun 17,2023</td>
+                                <td>348k</td>
+                                <td>253</td>
+                                <td>67k</td>
+                                <td><button class = "btn btn-table">Details</button></td>
+                            </tr>
+                            <tr>
+                                <td class="table-title">
+                                    <img class = "table-image" src = "video 3.jpg">
+                                </td>
+                                <td>May 9,2023</td>
+                                <td>273k</td>
+                                <td>311</td>
+                                <td>93k</td>
+                                <td><button class = "btn btn-table">Details</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+
+    function pfp(){
+        window.open("");
+    }
+
+    var icon = document.getElementById("icon");
+
+    icon.onclick = function(){
+        document.body.classList.toggle("light-theme");
+        if(document.body.classList.contains("light-theme")){
+            icon.src = "moon.png";
+        }else{
+            icon.src = "sun.png";
+        }
+    }
+</script>
+</body>
+<script src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src = "app.js"></script>
+</html>

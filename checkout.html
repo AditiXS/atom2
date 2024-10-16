@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Checkout_atom</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+       
+        body {
+            width: 100%;
+            height: 100vh;
+            background: #131313;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 900px) {
+            .container {
+                display: flex;
+            }
+            .left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+        
+        .container {
+            width: 96%;
+            margin: 30px auto;
+        }
+        
+        .column {
+            width: 50%;
+            height: 100vh;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            border-radius: 20px;
+        }
+        
+        .left {
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 0 100px 0;
+            font-family: "Ayer Poster";
+            border: none;
+        }
+        
+        .logo {
+            font-size: 24px;
+            flex-grow: 1;
+        }
+        
+        .header h1 {
+            text-transform: uppercase;
+            font-size: 125px;
+            font-weight: 200;
+            flex-grow: 1;
+        }
+        
+        .ml12 .letter {
+            display: inline-block;
+            line-height: 0.25em;
+        }
+        
+        .back-btn {
+            color: rgb(104, 104, 104);
+            font-family: "Neue Montreal";
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 10px;
+            flex-grow: 2;
+            cursor: pointer;
+        }
+        
+        .price {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-family: "Neue Montreal";
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 400;
+            width: 50%;
+        }
+        
+        .right {
+            padding: 30px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-family: "Neue Montreal";
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 400;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        
+        .active {
+            color: rgb(104, 104, 104);
+        }
+        
+        .card-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-img img {
+            width: 105%;
+        }
+        
+        .form input {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgb(104, 104, 104);
+            outline: none;
+            padding: 20px 20px 20px 0;
+            margin: 0 0px;
+            color: #fff;
+            font-family: "Neue Montreal";
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .form-row {
+            display: flex;
+        }
+        
+        button {
+            width: 100%;
+            margin: 40px 0;
+            padding: 20px 0;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+            border: none;
+            font-weight: 400;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 900px) {
+            html,
+            body {
+                height: 100%;
+                overflow: visible;
+            }
+            .left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        
+            .column {
+                width: 94% !important;
+            }
+        }
+    </style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="left column">
+				<div class="logo"><ion-icon name="finger-print"></ion-icon></div>
+				<div class="header"><h1 class="ml12">checkout</h1></div>
+				<div class="back-btn">⟵ back to address</div>
+				<div class="price">
+					<span>total</span>
+					<span>979.80 INR</span>
+				</div>
+			</div>
+			<div class="right column">
+				<div class="nav">
+					<div class="nav-item">shopping</div>
+					➝
+					<div class="nav-item">address</div>
+					➝
+					<div class="nav-item active">checkout</div>
+				</div>
+				<div class="card-img">
+					<img src="card2.png" alt="Card Image"  loading="eager"/>
+				</div>
+				<div class="form">
+					<div class="form-row">
+						<input type="text"  pattern="[0-9]{16}" placeholder="1234 5678 9012 3456" title="Please enter a valid 16-digit card number" />
+					</div>
+					<div class="form-row">
+						<input type="month" placeholder="MM/YY" />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						<input type="number"  pattern="[0-9]{3}"placeholder="cvv" title="Please enter a valid 3-digit CVV" />
+					</div>
+				</div>
+				<div class="btn">
+					<button>checkout</button>
+				</div>
+                
+			</div>
+		</div>
+		<script>
+			var textWrapper = document.querySelector(".ml12");
+			textWrapper.innerHTML = textWrapper.textContent.replace(
+				/\S/g,
+				"<span class='letter'>$&</span>"
+			);
+
+			anime.timeline().add({
+				targets: ".ml12 .letter",
+				translateY: [100, 0],
+				translateZ: 0,
+				opacity: [0, 1],
+				easing: "easeOutExpo",
+				duration: 2000,
+				delay: (el, i) => 1200 + 60 * i,
+			});
+
+			TweenMax.from(".logo", 3, {
+				y: "40",
+				opacity: 0,
+				ease: Expo.easeInOut,
+			});
+
+			TweenMax.from(".back-btn", 3, {
+				y: "40",
+				opacity: 0,
+				ease: Expo.easeInOut,
+				delay: 0.4,
+			});
+
+			TweenMax.from(".right", 3, {
+				y: "40",
+				opacity: 0,
+				ease: Expo.easeInOut,
+				delay: 0.6,
+			});
+
+			TweenMax.from(".card-img", 2, {
+				y: "60",
+				opacity: 0,
+				ease: Expo.easeInOut,
+				delay: 1.2,
+			});
+
+			TweenMax.from(".btn", 2, {
+				y: "60",
+				opacity: 0,
+				ease: Expo.easeInOut,
+				delay: 1.4,
+			});
+
+			TweenMax.staggerFrom(
+				".price > span",
+				1,
+				{
+					y: "40",
+					opacity: 0,
+					ease: Power2.easeOut,
+					delay: 1.6,
+				},
+				0.2
+			);
+
+			TweenMax.staggerFrom(
+				".nav > .nav-item",
+				1,
+				{
+					y: "40",
+					opacity: 0,
+					ease: Power2.easeOut,
+					delay: 1.6,
+				},
+				0.2
+			);
+
+			TweenMax.staggerFrom(
+				".form > div",
+				1,
+				{
+					y: "40",
+					opacity: 0,
+					ease: Power2.easeOut,
+					delay: 2,
+				},
+				0.2
+			);
+		</script>
+	</body>
+</html>

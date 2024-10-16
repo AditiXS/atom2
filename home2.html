@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: "Neue Montreal";
+        }
+        a {
+            text-decoration: none;
+            color: #cdc6be;
+        }
+        .website-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            background: #cdc6be;
+            padding: 2em;
+        }
+        .hero-img {
+            height: 100%;
+            border: 2px solid #141412;
+            margin-top: 4em;
+            width: 100%;
+        }
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5em 2em;
+            color: #cdc6be;
+            mix-blend-mode: difference;
+            z-index: 2;
+        }
+        .logo {
+            text-align: center;
+            font-family: "Canopee";
+        }
+        .logo a {
+            text-decoration: none;
+            font-size: 30px;
+            color: #cdc6be;
+        }
+        .burger {
+            position: relative;
+            padding: 1.75em 2em;
+            background: rgba(255, 255, 255, 0);
+            outline: none;
+            border: none;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .burger:before,
+        .burger:after {
+            content: "";
+            width: 40px;
+            height: 2px;
+            position: absolute;
+            background: #cdc6be;
+            transition: all 250ms ease-out;
+        }
+        .burger:before {
+            transform: translateY(-3px);
+        }
+        .burger:after {
+            transform: translateY(3px);
+        }
+        .active.burger:before {
+            transform: translate(0) rotate(45deg);
+        }
+        .active.burger:after {
+            transform: translate(0) rotate(-45deg);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            background: #141412;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            will-change: transform;
+            z-index: 1;
+        }
+        .overlay-menu {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            gap: 1em;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-item {
+            cursor: pointer;
+        }
+        .menu-item p {
+            position: relative;
+            text-align: center;
+            font-family: "Canopee";
+            font-size: 13vw;
+            line-height: 1.2%;
+            margin: 80px;
+            padding:5px;
+            transition: letter-spacing 0.3s;
+        }
+        .menu-item p:hover {
+            letter-spacing: 0.075em;
+        }
+       
+     
+        .menu-item p::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%); ;
+    width: 0;
+    height: 2px;
+    background-color: red; /* Red line color */
+    transition: width 0.3s ease-in-out;
+}
+
+.menu-item p:hover::after {
+    width: 100%;
+}
+.sub-nav {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5em;
+            opacity: 0;
+            transition: opacity 0.5s ease; 
+            z-index: 2; 
+
+        }
+        .sub-nav p {
+            font-family: "Canopee";
+            font-size: 20px;
+            color: #cdc6be;
+        }
+      
+    </style>
+</head>
+<body>
+    
+    <div class="website-content">
+        <div class="hero-img">
+            <video src="" alt="" />  
+        </div>
+    </div>
+    <nav>
+        <div class="info">
+            <p>FOLIO>VOL!</p>
+        </div>  
+        <div class="logo">
+            <p><a href="logo.jpg">ATOM</a></p>
+        </div>
+        <div class="toggle-btn">
+            <button class="burger" onclick="this.classList.toggle('active')"></button>
+        </div>
+    </nav>
+
+    <div class="overlay">
+        <div class="overlay-menu">
+            <div class="menu-item">
+                <p id="active"><a href="#">HOME</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#">ABOUT</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#">CONTACT</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sub-nav">
+        <p><a href="#">twitter</a></p>
+        <p>.</p>
+        <p><a href="https://www.instagram.com/saintlyatom/">instagram</a></p>
+        <p>.</p>
+        <p><a href="#">facebook</a></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
+            const toggleButton = document.querySelector(".burger");
+            let isOpen = false;
+
+            gsap.set(".menu-item p", { y: 225 });
+            const timeline = gsap.timeline({ paused: true });
+
+            timeline.to(".overlay", {
+                duration: 1.5,
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut"
+            });
+
+            timeline.to(".menu-item p", {
+                duration: 1.5,
+                y: 0,
+                stagger: 0.2,
+                ease: "power4.out",
+            }, "-=1");
+
+            timeline.to(activeItemIndicator, {
+                width: "100%",
+                duration: 1,
+                ease: "power4.out",
+                delay: 0.5
+            }, "<");
+
+            timeline.to(".sub-nav", {
+                bottom: "5%",
+                duration: 0.5,
+                opacity: 1,
+                ease: "power4.out",
+
+                delay: 0.5
+            }, "<");
+
+            toggleButton.addEventListener("click", function() {
+                if (isOpen) {
+                    timeline.reverse();
+                } else {
+                    timeline.play();
+                }
+                isOpen = !isOpen;
+            });
+        });
+    </script>
+</body>
+</html>

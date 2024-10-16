@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Remedies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="remedy.css">
+    <style>
+        /* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F1F8E9; /* Light Mint Green */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    color: #3E2723; /* Darker Earthy Brown */
+}
+
+p, a, li, button, input, textarea {
+    font-family: 'Poppins', sans-serif;
+    color: #3E2723; /* Darker Earthy Brown */
+}
+
+/* Navbar Container */
+header {
+    background: #F1F8E9; /* Light Mint Green */
+    color: #3E2723; /* Darker Earthy Brown */
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 a {
+    color: #3E2723; /* Darker Earthy Brown */
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: 'Lora', serif;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #3E2723; /* Darker Earthy Brown */
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #007bff; /* Primary color for mobile menu */
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .nav-item {
+        margin: 0;
+    }
+
+    .nav-item a {
+        padding: 10px 20px;
+        display: block;
+        color: #fff;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+}
+
+/* Remedies Section */
+.remedies-section {
+    padding: 40px 20px;
+    background-color: #FFFFFF; /* White */
+    margin-bottom: 40px; 
+}
+
+.remedies-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.remedies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.remedy-card {
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+    margin: 20px auto; 
+}
+
+.remedy-card:hover {
+    transform: translateY(-10px);
+}
+
+.remedy-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.remedy-info {
+    padding: 15px;
+}
+
+.remedy-info h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #3E2723; /* Darker Earthy Brown */
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 40px 20px;
+    background-color: #FFEBEE; /* Light Pink */
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+.benefits-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3E2723; /* Darker Earthy Brown */
+    margin-bottom: 20px;
+}
+
+.benefits-section p {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    color: #4E342E; /* Slightly darker brown for better readability */
+}
+
+/* Enhanced Comment Section */
+.comments-section {
+    padding: 40px 20px;
+    background-color: #E0F7FA; /* Soft Teal */
+    margin-bottom: 40px; 
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.comments-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #004d40; /* Deep Teal */
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    margin-bottom: 15px;
+    border: 1px solid #b2dfdb;
+    border-radius: 8px;
+    resize: vertical;
+    background-color: #FFFFFF; /* White background for text area */
+    color: #004d40; /* Darker text color */
+}
+
+.comment-form button {
+    padding: 12px 25px; /* Adjusted padding */
+    background-color: #00897b; /* Softer Green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+    background-color: #004d40; /* Darker Green on hover */
+}
+
+/* Comments Display */
+.comments-display h3 {
+    margin-bottom: 10px;
+    color: #004D40; /* Deep Teal */
+}
+
+.comments-display .comment {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #004D40; /* Deep Teal */
+    color: #E0F7FA; /* Soft Teal */
+    padding: 20px 0; /* Adjusted padding */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 0; /* Removed any extra margin */
+    padding-bottom: 0; /* Ensure no padding at the bottom */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.social-media a {
+    color: #E0F7FA; /* Soft Teal */
+    margin: 0 15px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #80cbc4; 
+}
+
+.footer-nav a {
+    color: #80cbc4; 
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #B2DFDB; 
+}
+
+.footer-warning {
+    background-color: #00332B; 
+    padding: 15px 25px;
+    margin: 20px 0;
+    color: #E0F7FA; /* Soft Teal */
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #B2DFDB; /* Muted Teal */
+    margin-bottom: 10px;
+}
+
+/* Comments Section */
+.comments-section {
+    padding: 40px 20px;
+    background-color: #E0F7FA; /* Soothing Teal background */
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #004D40; /* Deep Teal */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.comment-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    background-color: #004D40; /* Deep Teal */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.comments-display {
+    margin-top: 30px;
+}
+
+.comments-display .comment {
+    background-color: #FFFFFF; /* White */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-display h3 {
+    font-size: 20px;
+    color: #004D40; /* Deep Teal */
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <h1><a href="#"><img src="aaradhyaremovebg-preview.png" alt="Logo" class="logo" width="150" height="100"></a></h1>
+            <div class="container-fluid">
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h1><b>Atom</b></h1>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                       
+                     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#physical-health" >Physical-Health</a></li>
+                                <li><a class="dropdown-item" href="#mental-health">Mental-Health</a></li>
+                                <li><a class="dropdown-item" href="#sexual-health">Sexual-Health</a></li>
+                                <li><a class="dropdown-item" href="#women-health">Women-Health</a></li>
+                                <li><a class="dropdown-item" href="#men-health">Men-Health</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="./feedback.html">Feedback</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown ms-auto" >
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contact Us Through
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.instagram.com/saintlyatom/">Instagram</a></li>
+                                <li><a class="dropdown-item" href="#">Email on atomsaintly@gmail.com</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section id="remedies" class="remedies-section">
+        <h2>Explore Our Remedies</h2>
+
+        <!-- Physical Health -->
+        <section id="physical-health" class="remedies-section">
+        <div class="section-category">
+            <h3>Physical Health</h3>
+            <div class="remedies-grid">
+                <div class="remedy-card">
+                    <img src="https://www.fashionlady.in/wp-content/uploads/2017/09/health-benefits-of-honey-lemon-water.jpg" alt="Honey and Lemon">
+                    <div class="remedy-info">
+                        <h4>Honey and Lemon</h4>
+                        <p>Soothes sore throats and helps with coughs.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://static.toiimg.com/photo/msid-69376628/69376628.jpg?211488" alt="Ginger Tea">
+                    <div class="remedy-info">
+                        <h4>Ginger Tea</h4>
+                        <p>Relieves nausea and aids digestion.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.ZUUsDHXE0QaYTmVV6Pf4ZgAAAA?rs=1&pid=ImgDetMain" alt="Turmeric Milk">
+                    <div class="remedy-info">
+                        <h4>Turmeric Milk</h4>
+                        <p>Boosts immunity and has anti-inflammatory properties.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/R.0a6414082f275b677e9ec964f71306f8?rik=LFmQy6WPRsG%2fvg&riu=http%3a%2f%2fwww.conaloe.com%2fwp-content%2fuploads%2f2015%2f05%2fp-aloe-vera-gel.jpg&ehk=YjBno3dF0b0%2boaUakTWtBTLZN3Equ4%2bLvPEBT1if5wc%3d&risl=&pid=ImgRaw&r=0" alt="Aloe Vera Gel">
+                    <div class="remedy-info">
+                        <h4>Aloe Vera Gel</h4>
+                        <p>Moisturizes skin and aids in healing burns.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.BRgBAd-maHsf7SlChW-bXgHaE8?w=300&h=200&c=7&o=5&dpr=1.3&pid=1.7" alt="Peppermint Tea">
+                    <div class="remedy-info">
+                        <h4>Peppermint Tea</h4>
+                        <p>Relieves headaches and improves digestion.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/R.c8d0764cccdf2651e661f33f3373d5c3?rik=SmxiqhNSfhv5GA&riu=http%3a%2f%2fwww.herbsjoy.com%2fwp-content%2fuploads%2f2017%2f02%2fApple-Cider-Vinegar-1.jpeg&ehk=VLvGIgyxjpXj2wZRFlu4s%2frDgJdYgBVkeE4wZJD9%2bo4%3d&risl=&pid=ImgRaw&r=0" alt="Apple Cider Vinegar">
+                    <div class="remedy-info">
+                        <h4>Apple Cider Vinegar</h4>
+                        <p>Balances blood sugar and aids in weight loss.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.mashed.com/img/gallery/what-is-a-garlic-clove-really-and-how-do-you-use-it/l-intro-1628012061.jpg" alt="Garlic">
+                    <div class="remedy-info">
+                        <h4>Garlic</h4>
+                        <p>Boosts immunity and may lower blood pressure.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.LsI7kohBQB-2b7VHh3zjlQHaE0?w=263&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Coconut Oil">
+                    <div class="remedy-info">
+                        <h4>Coconut Oil</h4>
+                        <p>Moisturizes skin and can be used for cooking.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.nutritionbreakthroughs.com/wp-content/uploads/2017/02/Chamomile-tea-benefits-1200x890.jpg" alt="Chamomile Tea">
+                    <div class="remedy-info">
+                        <h4>Chamomile Tea</h4>
+                        <p>Promotes sleep and reduces anxiety.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.Q27KwP2v4NDwfvc0Rac_bQHaLH?w=208&h=305&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Oatmeal">
+                    <div class="remedy-info">
+                        <h4>Oatmeal</h4>
+                        <p>Soothes irritated skin and helps with eczema.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.s74j6lIMaon8XTOrBjccnQHaEK?w=298&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Eucalyptus Oil">
+                    <div class="remedy-info">
+                        <h4>Eucalyptus Oil</h4>
+                        <p>Helps clear respiratory issues and acts as a decongestant.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.tastingtable.com/img/gallery/the-real-difference-between-bananas-and-baby-bananas/l-intro-1663622196.jpg" alt="Banana">
+                    <div class="remedy-info">
+                        <h4>Banana</h4>
+                        <p>Rich in potassium and helps regulate blood pressure.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.rNlZQ2-k4DLFlTBlfRLx3QHaGR?pid=ImgDet&w=474&h=401&rs=1" alt="Lemon Balm">
+                    <div class="remedy-info">
+                        <h4>Lemon Balm</h4>
+                        <p>Reduces stress and improves sleep quality.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.AcnG6nMuIUoVDJ7jJr-E4gAAAA?rs=1&pid=ImgDetMain">
+                    <div class="remedy-info">
+                        <h4>Flaxseed</h4>
+                        <p>Rich in omega-3 fatty acids and aids digestion.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.KcB47mqZD5Jlr-vSTDnnEQHaF7?rs=1&pid=ImgDetMain" alt="Papaya">
+                    <div class="remedy-info">
+                        <h4>Papaya</h4>
+                        <p>Promotes healthy digestion and skin health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mental Health -->
+        <section id="mental-health" class="remedies-section">
+        <div class="section-category">
+            <h3>Mental Health</h3>
+            <div class="remedies-grid">
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.745Rk7z90501B_jJAfDalwHaD4?rs=1&pid=ImgDetMain" alt="Lavender Oil">
+                    <div class="remedy-info">
+                        <h4>Lavender Oil</h4>
+                        <p>Reduces stress and promotes relaxation.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.d3m0XSX-UuFbLgJBrfIO7wAAAA?rs=1&pid=ImgDetMain" alt="Ashwagandha">
+                    <div class="remedy-info">
+                        <h4>Ashwagandha</h4>
+                        <p>Improves stress resilience and mental clarity.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.nutritionbreakthroughs.com/wp-content/uploads/2017/02/Chamomile-tea-benefits-1200x890.jpg" alt="Chamomile Tea">
+                    <div class="remedy-info">
+                        <h4>Chamomile Tea</h4>
+                        <p>Promotes sleep and reduces anxiety.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.0dF7REG1FmlO1rruQB-mJQHaE8?rs=1&pid=ImgDetMain" alt="Valerian Root">
+                    <div class="remedy-info">
+                        <h4>Valerian Root</h4>
+                        <p>Helps with insomnia and reduces anxiety.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/R.212ddcd47e5bf232ef6001073a43983c?rik=TOPOhiBMg%2fVCbQ&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f5%2f5b%2fRhodiola.rosea.7648.jpg&ehk=nroGZtI17jw1WS%2b9NzRSz962ws6xQQykBm3N3RSfQZs%3d&risl=&pid=ImgRaw&r=0" alt="Rhodiola">
+                    <div class="remedy-info">
+                        <h4>Rhodiola</h4>
+                        <p>Enhances mood and reduces fatigue.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.qwmhzrEuWPJF5LUCuzCzvAHaEK?rs=1&pid=ImgDetMain" alt="St. John's Wort">
+                    <div class="remedy-info">
+                        <h4>St. John's Wort</h4>
+                        <p>Helps alleviate symptoms of depression.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://i.ndtvimg.com/i/2017-04/brahmi_620x351_51492412154.jpg" alt="Brahmi">
+                    <div class="remedy-info">
+                        <h4>Brahmi</h4>
+                        <p>Improves memory and reduces stress.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/R.55ca6430f23ee507257c8d7151468a5c?rik=b14v3uHz2OGgqA&riu=http%3a%2f%2fayurvedicmagazine.com%2fwp-content%2fuploads%2f2016%2f01%2ftulsi.jpg&ehk=qVpd%2fevGjMtejYzTykWBWAzMoqyolPV%2fceALBHK1CTA%3d&risl=&pid=ImgRaw&r=0" alt="Holy Basil">
+                    <div class="remedy-info">
+                        <h4>Tulsi/h4>
+                        <p>Promotes mental balance and reduces stress.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.D0WKAtvx2TSUuyCt2sg7-AHaE7?rs=1&pid=ImgDetMain" alt="Omega-3 Fatty Acids">
+                    <div class="remedy-info">
+                        <h4>Omega-3 Fatty Acids</h4>
+                        <p>Improves mood and supports brain health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.rNlZQ2-k4DLFlTBlfRLx3QHaGR?pid=ImgDet&w=474&h=401&rs=1" alt="Lemon Balm">
+                    <div class="remedy-info">
+                        <h4>Lemon Balm</h4>
+                        <p>Reduces stress and improves sleep quality.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.rSg9sXzWKkiG492chnEK1gAAAA?rs=1&pid=ImgDetMain" alt="Ginseng">
+                    <div class="remedy-info">
+                        <h4>Ginseng</h4>
+                        <p>Boosts energy and cognitive function.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://ornamentalis.com/wp-content/uploads/2018/05/ginkgo-biloba.jpg" alt="Ginkgo Biloba">
+                    <div class="remedy-info">
+                        <h4>Ginkgo Biloba</h4>
+                        <p>Improves memory and reduces anxiety.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://berryganics.com/wp-content/uploads/2020/01/7-p-1-1024x461.jpg" alt="Magnesium">
+                    <div class="remedy-info">
+                        <h4>Magnesium</h4>
+                        <p>Reduces anxiety and improves sleep.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://i.pinimg.com/originals/37/28/d4/3728d41f8a194c2b9c98eb1ff5f9c8a6.jpg" alt="Passionflower">
+                    <div class="remedy-info">
+                        <h4>Passionflower</h4>
+                        <p>Helps with insomnia and anxiety.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.VzWuP0V_aDd6-8WwFQP_yAHaFM?pid=ImgDet&w=474&h=332&rs=1" alt="Licorice Root">
+                    <div class="remedy-info">
+                        <h4>Licorice Root</h4>
+                        <p>Balances hormones and reduces stress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sexual Health -->
+        <section id="sexual-health" class="remedies-section">
+        <div class="section-category">
+            <h3>Sexual Health</h3>
+            <div class="remedies-grid">
+                <div class="remedy-card">
+                    <img src="https://cdn.shopify.com/s/files/1/1735/3747/products/Licorice_Root_Crop_2048x@2x.jpg?v=1542188226" alt="Maca Root">
+                    <div class="remedy-info">
+                        <h4>Maca Root</h4>
+                        <p>Enhances libido and improves fertility.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.vey3HlfxW7cP0UQHRd2J8QHaE7?rs=1&pid=ImgDetMain" alt="Tribulus Terrestris">
+                    <div class="remedy-info">
+                        <h4>Tribulus Terrestris</h4>
+                        <p>Boosts libido and supports reproductive health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.pa7O4ZUsUSkhbjg5pCPCiAHaD4?rs=1&pid=ImgDetMain" alt="Horny Goat Weed">
+                    <div class="remedy-info">
+                        <h4>Horny Goat Weed</h4>
+                        <p>Improves sexual performance and libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://th.bing.com/th/id/OIP.d3m0XSX-UuFbLgJBrfIO7wAAAA?rs=1&pid=ImgDetMain" alt="Ashwagandha">
+                    <div class="remedy-info">
+                        <h4>Ashwagandha</h4>
+                        <p>Enhances sexual function and reduces stress.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/ginseng-root-on-cutting-board-1296x728.jpg?w=1155&h=1528" alt="Ginseng">
+                    <div class="remedy-info">
+                        <h4>Ginseng</h4>
+                        <p>Boosts libido and improves erectile function.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://media.post.rvohealth.io/wp-content/uploads/2023/05/damiana-plant-1200-628-facebook-1200x628.jpg" alt="Damiana">
+                    <div class="remedy-info">
+                        <h4>Damiana</h4>
+                        <p>Enhances sexual pleasure and boosts libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/fenugreek3-1676488319.jpg" alt="Fenugreek">
+                    <div class="remedy-info">
+                        <h4>Fenugreek</h4>
+                        <p>Improves sexual function and libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdb3Ir4YzNooPULeY_zfhplKvWLaSefDHKBg&s" alt="Saw Palmetto">
+                    <div class="remedy-info">
+                        <h4>Saw Palmetto</h4>
+                        <p>Supports prostate health and sexual function.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/FB/ZQ/YV/18224495/pure-shilajit-resin-500x500.jpeg" alt="Shilajit">
+                    <div class="remedy-info">
+                        <h4>Shilajit</h4>
+                        <p>Improves sexual performance and energy.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-DrIg62aMHDrtfxjQ5QpeJYlqhM5sms1d-g&s" alt="Yohimbe">
+                    <div class="remedy-info">
+                        <h4>Yohimbe</h4>
+                        <p>Enhances sexual function and libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://vaaradhifarms.com/cdn/shop/files/remya_beautiful_close_up_shot_of_saffron_flower_with_saffron_al_19d08eee-0f6e-43f2-9bce-813397268f3b.png?v=1705982784&width=1024" alt="Saffron">
+                    <div class="remedy-info">
+                        <h4>Saffron</h4>
+                        <p>Boosts libido and sexual function.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://5.imimg.com/data5/ECOM/Default/2024/3/401836334/YA/MR/XS/141998135/tongkataliextractpowder-eurycomalongifolia-longjackroot-thewholesalerco.jpg" alt="Tongkat Ali">
+                    <div class="remedy-info">
+                        <h4>Tongkat Ali</h4>
+                        <p>Enhances testosterone levels and libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/08/healthy-high-arginine-foods_thumb-732x549.jpg" alt="L-Arginine">
+                    <div class="remedy-info">
+                        <h4>L-Arginine</h4>
+                        <p>Improves blood flow and sexual performance.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr8a5lW3fDpVqV2L7Q6VqJzW7RLEd5RrUrtw&s" alt="Pumpkin Seeds">
+                    <div class="remedy-info">
+                        <h4>Pumpkin Seeds</h4>
+                        <p>Supports prostate health and libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://static.toiimg.com/thumb/msid-99792572,width-1280,height-720,resizemode-4/99792572.jpg" alt="Zinc">
+                    <div class="remedy-info">
+                        <h4>Zinc</h4>
+                        <p>Supports testosterone levels and sexual health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Women's Health -->
+        <section id="women-health" class="remedies-section">
+        <div class="section-category">
+            <h3>Women's Health</h3>
+            <div class="remedies-grid">
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBh0ugeUufzZhYH3sKx88c7CYGfqlLdaBItQ&s" alt="Red Raspberry Leaf">
+                    <div class="remedy-info">
+                        <h4>Red Raspberry Leaf</h4>
+                        <p>Supports menstrual health and pregnancy.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_G7OoQF3p2k4c1GG8Q4-8lcEHOiQS0uqnTw&s" alt="Evening Primrose Oil">
+                    <div class="remedy-info">
+                        <h4>Evening Primrose Oil</h4>
+                        <p>Alleviates PMS symptoms and supports skin health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzXUQu3k_s1Ln19Un15hTAJ0rnCDb0x7LWVA&s" alt="Fenugreek">
+                    <div class="remedy-info">
+                        <h4>Fenugreek</h4>
+                        <p>Supports lactation and hormone balance.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://assets.clevelandclinic.org/transform/bdc5d5da-4625-47d9-b7b3-37bfef6b0565/Black-Cohosh-1353604922-770x533-1_jpg" alt="Black Cohosh">
+                    <div class="remedy-info">
+                        <h4>Black Cohosh</h4>
+                        <p>Relieves menopause symptoms and supports bone health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ8r6fGvWMdwvppWfjcI_4o_bInseR1_Gspg&s" alt="Dong Quai">
+                    <div class="remedy-info">
+                        <h4>Dong Quai</h4>
+                        <p>Supports reproductive health and hormone balance.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://files.nccih.nih.gov/chasteberry-steven-foster-square.jpg" alt="Chasteberry">
+                    <div class="remedy-info">
+                        <h4>Chasteberry</h4>
+                        <p>Helps regulate menstrual cycles and reduce PMS symptoms.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRayzsUaTdpdDdZBXaB4lkz2DwA2obinGJGUg&s" alt="Maca Root">
+                    <div class="remedy-info">
+                        <h4>Maca Root</h4>
+                        <p>Balances hormones and boosts libido.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLFrMFjV8jIXJxp_UBBbxFlUlYBBTlqizt1A&s" alt="Vitex">
+                    <div class="remedy-info">
+                        <h4>Vitex</h4>
+                        <p>Supports hormone balance and reproductive health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3LwZqLCKFUyq0ZkjktMqeqtgikG1nYfedVQ&s" alt="Ginger">
+                    <div class="remedy-info">
+                        <h4>Ginger</h4>
+                        <p>Reduces menstrual cramps and supports digestion.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyyMl_BfXNC0LOQlJeDUttLzNwvGG8KlqSSg&s" alt="Turmeric">
+                    <div class="remedy-info">
+                        <h4>Turmeric</h4>
+                        <p>Reduces inflammation and supports menstrual health.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/Food-Nutrition/1296x728_Holy_Basil.jpg?w=1155&h=1528" alt="Holy Basil">
+                    <div class="remedy-info">
+                        <h4>Holy Basil</h4>
+                        <p>Balances hormones and reduces stress.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.kolorshealthcare.com/blog/wp-content/uploads/2022/12/Flax-Seeds-Weight-Loss.jpg" alt="Flaxseed">
+                    <div class="remedy-info">
+                        <h4>Flaxseed</h4>
+                        <p>Supports hormone balance and digestion.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://www.jiomart.com/images/product/original/590003606/rosemary-10-g-product-images-o590003606-p590362822-0-202203150616.jpg?im=Resize=(1000,1000)" alt="Rosemary">
+                    <div class="remedy-info">
+                        <h4>Rosemary</h4>
+                        <p>Supports cognitive health and reduces stress.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiutErbdhmusqDDjRrosPfjOsQBskcQqmgKQ&s" alt="Omega-3 Fatty Acids">
+                    <div class="remedy-info">
+                        <h4>Omega-3 Fatty Acids</h4>
+                        <p>Supports reproductive health and reduces inflammation.</p>
+                    </div>
+                </div>
+                <div class="remedy-card">
+                    <img src="https://m.media-amazon.com/images/I/81XWpVvk5AL.AC_UF1000,1000_QL80.jpg" alt="Aloe Vera">
+                    <div class="remedy-info">
+                        <h4>Aloe Vera</h4>
+                        <p>Soothes skin and supports reproductive health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Men's Health -->
+        <section id="men-health" class="remedies-section">
+<div class="section-category">
+    <h3 >Men's Health</h3>
+    <div class="remedies-grid">
+        <div class="remedy-card">
+            <img src="https://www.clinikally.com/cdn/shop/articles/Exploring_the_Link_Between_Saw_Palmetto_and_Hair_Loss_Myth_or_Reality.png?v=1680169688&width=1500" alt="Saw Palmetto">
+            <div class="remedy-info">
+                <h4>Saw Palmetto</h4>
+                <p>Supports prostate health and urinary function.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Insam_%28ginseng%29.jpg/640px-Insam_%28ginseng%29.jpg" alt="Ginseng">
+            <div class="remedy-info">
+                <h4>Ginseng</h4>
+                <p>Boosts energy levels and enhances physical performance.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBqCEhySw6KfIWf4JM-YBZuI7htQnEM8GqGQ&s" alt="Pumpkin Seeds">
+            <div class="remedy-info">
+                <h4>Pumpkin Seeds</h4>
+                <p>Rich in zinc, supports testosterone levels and prostate health.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://d1f34ajap1v5tm.cloudfront.net/image/Powerful-Health-Benefits-Of-Ashwagandha.jpg" alt="Ashwagandha">
+            <div class="remedy-info">
+                <h4>Ashwagandha</h4>
+                <p>Reduces stress and enhances strength and endurance.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJfHI3X9TCpHTm2U_u1EfCubBaZAiZSHpN_g&s" alt="Maca Root">
+            <div class="remedy-info">
+                <h4>Maca Root</h4>
+                <p>Improves stamina, libido, and overall vitality.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsuTn8UWe0nOUNFnoJ5KtoCSnMyGH-WfNJQ&s" alt="Fenugreek">
+            <div class="remedy-info">
+                <h4>Fenugreek</h4>
+                <p>Supports muscle mass and healthy testosterone levels.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2tVxiFFzzRvGeZTTUngUqSuO290iybUA2Zg&s" alt="Tribulus Terrestris">
+            <div class="remedy-info">
+                <h4>Tribulus Terrestris</h4>
+                <p>Enhances libido and testosterone production.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs7D_dnnpaumjS0jqabQ2ep0zrAxK-6a0rYw&s" alt="Stinging Nettle">
+            <div class="remedy-info">
+                <h4>Stinging Nettle</h4>
+                <p>Improves prostate health and urinary function.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaVaQ9hIsnPe8AKSySst5kXsOfhmsQbTb3Q&s" alt="Horny Goat Weed">
+            <div class="remedy-info">
+                <h4>Horny Goat Weed</h4>
+                <p>Boosts sexual performance and reduces fatigue.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://gardenerspath.com/wp-content/uploads/2020/11/Sources-of-Zinc-Cover.jpg" alt="Zinc Supplements">
+            <div class="remedy-info">
+                <h4>Zinc Supplements</h4>
+                <p>Supports immune function and testosterone production.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://img.bebeautiful.in/www-bebeautiful-in/Omega-3-fatty-acid-foods-for-healthy-skin-hair-and-body_mobilehome.jpg" alt="Omega-3 Fatty Acids">
+            <div class="remedy-info">
+                <h4>Omega-3 Fatty Acids</h4>
+                <p>Improves heart health and reduces inflammation.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxiudYwjiDYn6WJ62j4Tvg2A_sFvYS4ciWDg&s" alt="Vitamin D">
+            <div class="remedy-info">
+                <h4>Vitamin D</h4>
+                <p>Supports bone health and testosterone levels.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUP2k2AwIw9pWiHeNLzF0peLVFo1mnz39msw&s" alt="Magnesium">
+            <div class="remedy-info">
+                <h4>Magnesium</h4>
+                <p>Improves muscle function and sleep quality.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR98BNyfjP3Ple6rRP1tphwthoILexse3Ivwg&s" alt="Coenzyme Q10">
+            <div class="remedy-info">
+                <h4>Coenzyme Q10</h4>
+                <p>Boosts energy production and supports heart health.</p>
+            </div>
+        </div>
+        <div class="remedy-card">
+            <img src="https://www.verywellhealth.com/thmb/kApVIeJvztaXjueM_MKBROIFNvI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-benefits-of-boron-89548-primary-recirc-b9366b1e1cf34b2697995d7f15b0a948.jpg" alt="Boron">
+            <div class="remedy-info">
+                <h4>Boron</h4>
+                <p>Supports testosterone levels and reduces inflammation.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <h2>Why Home Remedies?</h2>
+        <p>Home remedies and natural solutions have been used for centuries to treat various health issues.
+            These remedies are often made from herbs, plants, and other natural ingredients that are gentle on the body and free from harmful chemicals.
+            They offer a holistic approach to health and wellness, addressing the root cause of the issue rather than just masking the symptoms.
+            Whether you're looking for relief from a common cold, support for mental health, or solutions for skin issues, home remedies provide a safe and effective option.</p>
+    </section>
+
+    <section class="comments-section">
+        <h2>Leave a Comment</h2>
+        <div class="comment-form">
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Comment" required></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+        </div>
+        <div class="comments-display">
+            <h3>Recent Comments</h3>
+            <div class="comment">
+                <p>This is a user comment. The remedies here are amazing!</p>
+            </div>
+           
+        </div>
+    </section>
+
+   
+</body>
+<footer>
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="footer-nav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-warning">
+            WARNING: This free home remedies site is intended to be for educational purposes only. 
+            Before making use of any of the natural and home remedies on this site, please consult your doctor or 
+            a naturopathic or homeopathic professional.
+        </div>
+        <div class="footer-copyright">
+            &copy; 2024 Atom. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+</html>

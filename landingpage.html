@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Atom</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+::selection{
+    color:#fff;
+    background:transparent;
+}
+body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background-color:red;
+}
+canvas{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    z-index:2;
+}
+
+.container{
+position: relative;
+z-index: 3;
+pointer-events: none;
+width: 100%;
+height:100%;
+pointer-events: none;
+}
+.site-content{
+   position: absolute; 
+   top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+
+}
+
+.nav, .footer{
+    display: flex;
+    width:100%;
+  justify-content: space-between;
+  padding:2em;
+
+}
+.footer{
+  position: absolute;
+  bottom:0;  
+}
+.links{
+    display:flex;
+    gap:2em;
+   
+}
+
+.footer .links a
+{text-decoration: none;}
+
+.footer .links a:hover{
+    text-decoration: underline;
+}
+.footer .cta a
+{text-decoration: none;}
+
+.footer .cta a:hover{
+    text-decoration: underline;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+    font-family:"Neue Montreal";
+    pointer-events: auto;
+
+}
+.logo a{
+    font-family:"Proxy_Mono_Beta";
+    text-transform: uppercase;
+}
+
+.hero-copy{
+    width:100%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    text-align:center;
+}
+.hero-copy h1{
+    font-size:8vw;
+    color:#fff;
+    font-family:"Proxy_Mono_Beta";
+    text-transform: uppercase;
+    font-weight:400;
+}
+
+.hero-copy p{
+  font-size:2vw;
+  color:#fff;
+  font-family:"Neue Montreal";
+  margin: 0.5em 0;  
+}
+#heroVideo{
+    position: fixed;
+    right:0;
+    bottom:0;
+    min-width:100%;
+    min-height:100%;
+
+}
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+    <div class="site-content">
+        <video autoplay muted loop id="heroVideo">
+            <source src="intro_home-1.mp4-720p-1.mp4" type="video/mp4"/>
+        </video>
+    </div>
+
+<div class="container">
+    <div class="nav">
+        <div class="logo">
+            <a href="#">Atom</a>
+        </div>
+        <div class="links">
+            <a href="landingpage.html">Home</a>
+           <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+    <div class="hero-copy">
+<h1>ATOM </h1>
+<p>1% better everday</p>
+    </div>
+    <div class="footer">
+        <div class="links">
+            <a href="https://www.instagram.com/saintlyatom/">Instagram</a>
+            <a href="header.html">Catalogue</a>
+        </div>
+    <div class="cta">
+        <a href="https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f&sdf=0">atomsaintly@gmail.com</a>
+      
+    </div></div>
+</div>
+
+<canvas id="draw"></canvas>
+<script>
+const canvas= document.querySelector("canvas");
+
+const ctx = canvas.getContext("2d");
+
+canvas.width= window.innerWidth;
+
+canvas.height = window.innerHeight;
+
+ctx.fillStyle = "black";
+
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+ctx.lineWidth=200;
+
+ctx.globalCompositeOperation = "destination-out";
+
+
+let isDrawing= false;
+let lastX= 0;
+let lastY=0;
+
+function draw(e) {
+
+if (!isDrawing) return;
+
+ctx.beginPath();
+
+ctx.moveTo(lastX, lastY);
+
+ctx.lineTo(e.offsetX, e.offsetY);
+
+ctx.stroke();
+
+[lastX, lastY]= [e.offsetX, e.offsetY];
+
+}
+canvas.addEventListener("mousedown",(e)=>{
+isDrawing=true;
+[lastX, lastY]=[e.offsetX,e.offsetY];
+
+});
+canvas.addEventListener("mousemove",draw);
+canvas.addEventListener("mouseup",()=> (isDrawing=false));
+canvas.addEventListener("mouseout",()=> (isDrawing=false));
+</script>
+
+</body>
+</html>
